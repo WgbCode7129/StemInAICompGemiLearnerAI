@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Tutor - Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color:#396fba;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        h1 {
+            margin: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            font-weight: bold;
+        }
+        select, input[type="text"], input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .btn-submit {
+            background-color: #396fba;
+            color: white;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-submit:hover {
+            background-color: #87b9ff;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>AI Tutor - Generate Learning Material</h1>
+</header>
+
+<div class="container">
+    <form action="/response" method="POST">
+        <div class="form-group">
+            <label for="chat">What's on your mind today?</label>
+            <input type="text" id="chat" name="chat" placeholder="Ask me Something" required>
+        </div>
+        <input type="submit" class="btn-submit" value="Chat">
+        
+        <div class="ai-response-box">
+            <h3>
+                AI's response: 
+            </h3>
+            <p>{{ ai_response }}</p>
+        </div>
+    </form>
+</div>
+
+<div class="container">
+    <form action="/generate" method="POST">
+        <div class="form-group">
+            <h1><b>Create Practice Questions</b></h1>
+
+            <br>
+
+            <label for="curriculum">Select Curriculum</label>
+            <select id="curriculum" name="curriculum" required>
+                <option value="" disabled selected>Select Curriculum</option>
+                {% for curriculum in curriculums %}
+                    <option value="{{ curriculum }}">{{ curriculum }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="topic">Enter Topic</label>
+            <input type="text" id="topic" name="topic" placeholder="Enter the topic for learning material" required>
+        </div>
+
+        <div class="form-group">
+            <label for="age_group">Select Age Group</label>
+            <select id="age_group" name="age_group" required>
+                <option value="" disabled selected>Select Age Group</option>
+                {% for age_group, label in age_groups.items() %}
+                    <option value="{{ age_group }}">{{ label }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <input type="submit" class="btn-submit" value="Generate Worksheet">
+    </form>
+</div>
+
+</body>
+</html>

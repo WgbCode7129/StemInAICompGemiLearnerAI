@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7fa;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #4CAF50;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+        .container {
+            padding: 20px;
+        }
+        .stats-box {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+        .stats-box div {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            width: 30%;
+            text-align: center;
+        }
+        footer {
+            background-color: #4CAF50;
+            padding: 10px;
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Welcome to Your Dashboard</h1>
+    </header>
+
+    <div class="container">
+        <h2>Overview</h2>
+        <div class="stats-box">
+            <div>
+                <h3>Total Users</h3>
+                <p>150</p>
+            </div>
+            <div>
+                <h3>Messages</h3>
+                <p>23</p>
+            </div>
+            <div>
+                <h3>Notifications</h3>
+                <p>5</p>
+            </div>
+        </div>
+
+        <h2>Recent Activities</h2>
+        <ul>
+            <li>User A logged in at 10:30 AM</li>
+            <li>User B uploaded a file at 10:45 AM</li>
+            <li>User C sent a message at 11:00 AM</li>
+        </ul>
+
+        <h2>Quick Links</h2>
+        <ul>
+            <li><a href="/profile">Go to your Profile</a></li>
+            <li><a href="/settings">Change your Settings</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 My Website</p>
+    </footer>
+
+</body>
+</html>
